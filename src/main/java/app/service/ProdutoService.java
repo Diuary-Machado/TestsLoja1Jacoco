@@ -45,4 +45,12 @@ public class ProdutoService {
 		return produtoRepository.existsById(id);
 	}
 
+	public List<Produto> findByProdutoNome(String nome){
+		return this.produtoRepository.findByProdutoNome(nome);
+	}
+
+	public List<Produto> findByValorA200(double valor){
+		return this.produtoRepository.findByValorA200(valor);
+	}
+
 }

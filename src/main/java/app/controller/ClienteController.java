@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Cliente;
@@ -122,4 +123,56 @@ public class ClienteController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+
+
+	@GetMapping("/findByClienteNome")
+	public ResponseEntity<List<Cliente>> findByClienteNome (@RequestParam String nome){
+
+		try {
+
+			List<Cliente> lista = this.clienteService.findByClienteNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
+	@GetMapping("/findByClienteCpf")
+	public ResponseEntity<List<Cliente>> findByClienteCpf(@RequestParam String cpf){
+
+		try {
+
+			List<Cliente> lista = this.clienteService.findByClienteCpf(cpf);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+	@GetMapping("/findByTelefoneCom45")
+	public ResponseEntity<List<Cliente>> findByTelefoneCom45 (@RequestParam String telefone){
+
+		try {
+
+			List<Cliente> lista = this.clienteService.findByTelefoneCom45(telefone);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Funcionario;
@@ -118,5 +119,55 @@ public class FuncionarioController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	@GetMapping("/findByFuncionarioNome")
+	public ResponseEntity<List<Funcionario>> findByFuncionarioNome (@RequestParam String nome){
+
+		try {
+
+			List<Funcionario> lista = this.funcionarioService.findByFuncionarioNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
+	@GetMapping("/findByFuncionarioIdade")
+	public ResponseEntity<List<Funcionario>> findByFuncionarioIdade (@RequestParam int idade){
+
+		try {
+
+			List<Funcionario> lista = this.funcionarioService.findByFuncionarioIdade(idade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
+	@GetMapping("/findByMatriculaTresZeros")
+	public ResponseEntity<List<Funcionario>> findByMatriculaTresZeros (@RequestParam String matricula){
+
+		try {
+
+			List<Funcionario> lista = this.funcionarioService.findByMatriculaTresZeros(matricula);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
 	}
 }

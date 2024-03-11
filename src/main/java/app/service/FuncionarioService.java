@@ -45,4 +45,16 @@ public class FuncionarioService {
 		return funcionarioRepository.existsById(id);
 	}
 
+	public List<Funcionario> findByFuncionarioNome(String nome){
+		return this.funcionarioRepository.findByFuncionarioNome(nome);
+	}
+
+	public List<Funcionario> findByFuncionarioIdade(int idade){
+		return this.funcionarioRepository.findByFuncionarioIdade(idade);
+	}
+
+	public List<Funcionario> findByMatriculaTresZeros(String matricula) {
+		return this.funcionarioRepository.findByMatriculaTresZeros(matricula);
+	}
+
 }

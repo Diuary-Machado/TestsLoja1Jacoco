@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Produto;
@@ -121,4 +122,41 @@ public class ProdutoController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+
+
+	@GetMapping("/findByProdutoNome")
+	public ResponseEntity<List<Produto>> findByProdutoNome (@RequestParam String nome){
+
+		try {
+
+			List<Produto> lista = this.produtoService.findByProdutoNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
+	@GetMapping("/findByValorA200")
+	public ResponseEntity<List<Produto>> findByValorA200 (@RequestParam double valor){
+
+		try {
+
+			List<Produto> lista = this.produtoService.findByValorA200(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+
+
+
 }
