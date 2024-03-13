@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -47,6 +49,7 @@ public class Cliente {
 	 */
 
 	@OneToMany(mappedBy = "cliente")
+	@JsonIgnoreProperties("cliente") 
 	private List<Venda> vendas;
 
 

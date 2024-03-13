@@ -139,7 +139,23 @@ public class ProdutoController {
 		}
 
 	}
+	
+	
+	@GetMapping("/findByProdutoMarca")
+	public ResponseEntity<List<Produto>> findByProdutoMarca (@RequestParam String marca){
 
+		try {
+
+			List<Produto> lista = this.produtoService.findByProdutoMarca(marca);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
 
 	@GetMapping("/findByValorA200")
 	public ResponseEntity<List<Produto>> findByValorA200 (@RequestParam double valor){
@@ -156,7 +172,5 @@ public class ProdutoController {
 		}
 
 	}
-
-
-
+		
 }

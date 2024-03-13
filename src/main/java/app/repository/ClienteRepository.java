@@ -14,6 +14,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 	public List<Cliente> findByClienteCpf(String cpf);
 
-	@Query("FROM Cliente c WHERE c.telefone LIKE '45%'")
-	List<Cliente> findByTelefoneCom45(String telefone);
+	@Query("FROM Cliente c WHERE c.telefone LIKE '45%'")  
+	List<Cliente> findByTelefoneCom45(); 
 }

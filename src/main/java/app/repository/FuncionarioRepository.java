@@ -15,5 +15,5 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 	public List<Funcionario> findByFuncionarioIdade(int idade);
 
 	@Query("FROM Funcionario f WHERE f.matricula LIKE '%000%'")
-	List<Funcionario> findByMatriculaTresZeros(String matricula);
+	List<Funcionario> findByMatriculaTresZeros(); 
 }

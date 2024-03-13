@@ -34,6 +34,9 @@ public class Produto {
 	@NotNull(message = "O campo Valor não pode ser nulo")
 	@NotBlank(message = "O campo Valor não pode estar em branco")
 	private double valor;
+	@NotNull(message = "O campo Marca não pode ser nulo")
+	@NotBlank(message = "O campo Marca não pode estar em branco")
+	private String marca;
 
 
 	/**
@@ -41,7 +44,7 @@ public class Produto {
 	 * Cada instância pode estar associada a várias vendas, referenciadas por "produto" em Venda.
 	 */
 
-	@ManyToMany(mappedBy = "produtos", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "produtos", cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("produtos")
 	private List<Venda> vendas;
 

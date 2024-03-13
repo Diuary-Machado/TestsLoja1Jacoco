@@ -45,10 +45,13 @@ public class Venda {
 	 * compras realizadas pelo mesmo cliente ao longo do tempo.
 	 */
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("clientes")
+
+
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JsonIgnoreProperties("vendas")
 	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;
+	private Cliente cliente; //verificar 
 
 
 	/**
@@ -56,8 +59,8 @@ public class Venda {
 	 * de venda realizadas por esse funcionário.
 	 */
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("funcionarios")
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JsonIgnoreProperties("vendas")
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
 
@@ -67,13 +70,9 @@ public class Venda {
 	 * várias vendas diferentes.
 	 */
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("produtos")
-	@JoinTable(
-			name = "venda_produto",
-			joinColumns = @JoinColumn(name = "venda_id"),
-			inverseJoinColumns = @JoinColumn(name = "produto_id")
-			)
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	@JsonIgnoreProperties("vendas")
+	@JoinTable(name = "venda_produto")
 	private List<Produto> produtos;
 
 

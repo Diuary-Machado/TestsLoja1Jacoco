@@ -57,7 +57,7 @@ public class ClienteService {
 	}
 
 	public List<Cliente> findByTelefoneCom45(String telefone){
-		return this.clienteRepository.findByTelefoneCom45(telefone);
+		return this.clienteRepository.findByTelefoneCom45();
 	}
 
 }

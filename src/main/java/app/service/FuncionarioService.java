@@ -54,7 +54,7 @@ public class FuncionarioService {
 	}
 
 	public List<Funcionario> findByMatriculaTresZeros(String matricula) {
-		return this.funcionarioRepository.findByMatriculaTresZeros(matricula);
+		return this.funcionarioRepository.findByMatriculaTresZeros();
 	}
 
 }
