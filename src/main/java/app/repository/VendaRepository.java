@@ -15,6 +15,6 @@ public interface VendaRepository extends JpaRepository<Venda, Long> {
 
 
 	@Query("FROM Venda v WHERE v.enderecoEntrega = :endereco")
-	public List<Venda> buscarPorEndereco(String endereco);
+	public List<Venda> findyByEndereco(String endereco);
 
 }

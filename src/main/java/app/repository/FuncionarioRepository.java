@@ -10,10 +10,10 @@ import app.entity.Funcionario;
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 
 
-	public List<Funcionario> findByFuncionarioNome(String nome);
+	public List<Funcionario> findByNome(String nome);
 
-	public List<Funcionario> findByFuncionarioIdade(int idade);
+	public List<Funcionario> findByIdade(int idade);
 
 	@Query("FROM Funcionario f WHERE f.matricula LIKE '%000%'")
-	List<Funcionario> findByMatriculaTresZeros(); 
+	public List<Funcionario> findByMatriculaTresZeros(); 
 }

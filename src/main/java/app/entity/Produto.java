@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +31,6 @@ public class Produto {
 	@NotBlank(message = "O campo Nome não pode estar em branco")
 	private String nome;
 	@NotNull(message = "O campo Valor não pode ser nulo")
-	@NotBlank(message = "O campo Valor não pode estar em branco")
 	private double valor;
 	@NotNull(message = "O campo Marca não pode ser nulo")
 	@NotBlank(message = "O campo Marca não pode estar em branco")
@@ -44,8 +42,8 @@ public class Produto {
 	 * Cada instância pode estar associada a várias vendas, referenciadas por "produto" em Venda.
 	 */
 
-	@ManyToMany(mappedBy = "produtos", cascade = CascadeType.PERSIST)
-	@JsonIgnoreProperties("produtos")
+	@ManyToMany(mappedBy = "produto")
+	@JsonIgnoreProperties("produto")
 	private List<Venda> vendas;
 
 

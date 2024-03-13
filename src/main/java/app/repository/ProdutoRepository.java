@@ -9,12 +9,12 @@ import app.entity.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 
-	public List<Produto> findByProdutoNome(String nome);
+	public List<Produto> findByNome(String nome);
 
-	public List<Produto> findByProdutoMarca(String marca);
+	public List<Produto> findByMarca(String marca);
 	
-	@Query("FROM Produto p WHERE p.valor <= 200")
-	List<Produto> findByValorA200(); 
+	@Query("FROM Produto p WHERE p.valor = :valor")
+	public List<Produto> findByValor(double valor); 
 	
 
 

@@ -46,4 +46,17 @@ public class VendaService {
 		return vendaRepository.existsById(id);
 	}
 
+	
+	public List<Venda> findByClienteNome(String nome){
+		return this.vendaRepository.findByClienteNome(nome);
+	}
+	
+	public List<Venda> findByFuncionarioMatricula(String matricula){
+		return this.vendaRepository.findByFuncionarioMatricula(matricula);
+	}
+	
+	public List<Venda> findyByEndereco(String enderecoEntrega){
+		return this.vendaRepository.findyByEndereco(enderecoEntrega);
+	}
+	
 }

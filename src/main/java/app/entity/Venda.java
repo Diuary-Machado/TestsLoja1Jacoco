@@ -51,7 +51,7 @@ public class Venda {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("vendas")
 	@JoinColumn(name = "cliente_id")
-	private Cliente cliente; //verificar 
+	private Cliente cliente; 
 
 
 	/**
@@ -73,7 +73,7 @@ public class Venda {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("vendas")
 	@JoinTable(name = "venda_produto")
-	private List<Produto> produtos;
+	private List<Produto> produto;
 
 
 

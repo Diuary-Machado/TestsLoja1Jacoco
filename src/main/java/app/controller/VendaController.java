@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Venda;
@@ -121,4 +122,54 @@ public class VendaController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@GetMapping("/findByVendaClienteNome")
+	public ResponseEntity<List<Venda>> findByClienteNome (@RequestParam String nome){
+
+		try {
+
+			List<Venda> lista = this.vendaService.findByClienteNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+	
+	@GetMapping("/findByVendaFuncionarioMatricula")
+	public ResponseEntity<List<Venda>> findByFuncionarioMatricula (@RequestParam String matricula){
+
+		try {
+
+			List<Venda> lista = this.vendaService.findByFuncionarioMatricula(matricula);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+	
+	
+	@GetMapping("/findyByEndereco")
+	public ResponseEntity<List<Venda>> findyByEndereco (@RequestParam String enderecoEntrega){
+
+		try {
+
+			List<Venda> lista = this.vendaService.findyByEndereco(enderecoEntrega);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+
+	}
+	
 }

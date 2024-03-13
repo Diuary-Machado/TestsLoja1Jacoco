@@ -45,16 +45,16 @@ public class ProdutoService {
 		return produtoRepository.existsById(id);
 	}
 
-	public List<Produto> findByProdutoNome(String nome){
-		return this.produtoRepository.findByProdutoNome(nome);
+	public List<Produto> findByNome(String nome){
+		return this.produtoRepository.findByNome(nome);
 	}
 	
-	public List<Produto> findByProdutoMarca(String marca){
-		return this.produtoRepository.findByProdutoMarca(marca);
+	public List<Produto> findByMarca(String marca){
+		return this.produtoRepository.findByMarca(marca);
 	}
 
-	public List<Produto> findByValorA200(double valor){
-		return this.produtoRepository.findByValorA200();
+	public List<Produto> findByValor(double valor){
+		return this.produtoRepository.findByValor(valor);
 	}
 
 }

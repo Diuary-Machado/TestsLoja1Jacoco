@@ -126,11 +126,11 @@ public class ClienteController {
 
 
 	@GetMapping("/findByClienteNome")
-	public ResponseEntity<List<Cliente>> findByClienteNome (@RequestParam String nome){
+	public ResponseEntity<List<Cliente>> findByNome (@RequestParam String nome){
 
 		try {
 
-			List<Cliente> lista = this.clienteService.findByClienteNome(nome);
+			List<Cliente> lista = this.clienteService.findByNome(nome);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -143,11 +143,11 @@ public class ClienteController {
 
 
 	@GetMapping("/findByClienteCpf")
-	public ResponseEntity<List<Cliente>> findByClienteCpf(@RequestParam String cpf){
+	public ResponseEntity<List<Cliente>> findByCpf(@RequestParam String cpf){
 
 		try {
 
-			List<Cliente> lista = this.clienteService.findByClienteCpf(cpf);
+			List<Cliente> lista = this.clienteService.findByCpf(cpf);
 			return new ResponseEntity<>(lista, HttpStatus.OK);
 
 		} catch (Exception e) {

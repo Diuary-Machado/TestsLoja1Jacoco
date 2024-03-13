@@ -10,10 +10,10 @@ import app.entity.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 
-	public List<Cliente> findByClienteNome(String nome);
+	public List<Cliente> findByNome(String nome);
 
-	public List<Cliente> findByClienteCpf(String cpf);
+	public List<Cliente> findByCpf(String cpf);
 
 	@Query("FROM Cliente c WHERE c.telefone LIKE '45%'")  
-	List<Cliente> findByTelefoneCom45(); 
+	public List<Cliente> findByTelefoneCom45(); 
 }

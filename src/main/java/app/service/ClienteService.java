@@ -48,12 +48,12 @@ public class ClienteService {
 	}
 
 
-	public List<Cliente> findByClienteNome(String nome){
-		return this.clienteRepository.findByClienteNome(nome);
+	public List<Cliente> findByNome(String nome){
+		return this.clienteRepository.findByNome(nome);
 	}
 
-	public List<Cliente> findByClienteCpf(String cpf){
-		return this.clienteRepository.findByClienteCpf(cpf);
+	public List<Cliente> findByCpf(String cpf){
+		return this.clienteRepository.findByCpf(cpf);
 	}
 
 	public List<Cliente> findByTelefoneCom45(String telefone){
