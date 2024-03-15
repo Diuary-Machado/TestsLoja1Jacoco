@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -29,15 +30,15 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotNull(message = "O campo Nome não pode ser nulo")
+	@NotBlank(message = "O campo Nome não pode estar em branco")
 	private String nome;
-	@NotNull
+	@NotBlank
 	@Length(max = 11, message = "O CPF deve ter no máximo 11 caracteres")
 	private String cpf;
 	@NotNull
 	@Positive(message = "A idade deve ser um número positivo")
 	private int idade;
-	@NotNull
+	@NotBlank
 	@Digits(integer = Integer.MAX_VALUE, fraction = 0, message = "O telefone deve conter apenas números")
 	private String telefone;
 

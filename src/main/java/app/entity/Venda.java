@@ -48,7 +48,7 @@ public class Venda {
 
 
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties("vendas")
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente; 
@@ -59,7 +59,7 @@ public class Venda {
 	 * de venda realizadas por esse funcionário.
 	 */
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties("vendas")
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
@@ -70,7 +70,7 @@ public class Venda {
 	 * várias vendas diferentes.
 	 */
 
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties("vendas")
 	@JoinTable(name = "venda_produto")
 	private List<Produto> produto;

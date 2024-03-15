@@ -27,13 +27,12 @@ public class Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotNull(message = "O campo Nome não pode ser nulo")
 	@NotBlank(message = "O campo Nome não pode estar em branco")
 	private String nome;
 	@NotNull
 	@Positive(message = "A Idade deve ser um número positivo")
 	private int idade;
-	@NotNull(message = "O campo Matricula não pode ser nulo")
+	@NotBlank(message = "O campo Matricula não pode estar em branco")
 	private String matricula;
 
 

@@ -27,12 +27,10 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotNull(message = "O campo Nome não pode ser nulo")
 	@NotBlank(message = "O campo Nome não pode estar em branco")
 	private String nome;
 	@NotNull(message = "O campo Valor não pode ser nulo")
 	private double valor;
-	@NotNull(message = "O campo Marca não pode ser nulo")
 	@NotBlank(message = "O campo Marca não pode estar em branco")
 	private String marca;
 
