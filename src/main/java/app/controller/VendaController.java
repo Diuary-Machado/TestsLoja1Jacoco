@@ -122,7 +122,7 @@ public class VendaController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	@GetMapping("/findByVendaClienteNome")
 	public ResponseEntity<List<Venda>> findByClienteNome (@RequestParam String nome){
 
@@ -138,7 +138,7 @@ public class VendaController {
 		}
 
 	}
-	
+
 	@GetMapping("/findByVendaFuncionarioMatricula")
 	public ResponseEntity<List<Venda>> findByFuncionarioMatricula (@RequestParam String matricula){
 
@@ -154,8 +154,8 @@ public class VendaController {
 		}
 
 	}
-	
-	
+
+
 	@GetMapping("/findyByEndereco")
 	public ResponseEntity<List<Venda>> findyByEndereco (@RequestParam String enderecoEntrega){
 
@@ -171,5 +171,5 @@ public class VendaController {
 		}
 
 	}
-	
+
 }

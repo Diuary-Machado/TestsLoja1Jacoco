@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,6 +39,9 @@ public class Venda {
 	private String enderecoEntrega;
 	@NotNull(message = "O campo ValorTotal não pode ser nulo")
 	private double valorTotal;
+	@NotBlank
+	private String status;
+
 
 
 	/**

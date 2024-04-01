@@ -33,7 +33,7 @@ public class Produto {
 	private double valor;
 	@NotBlank(message = "O campo Marca não pode estar em branco")
 	private String marca;
-
+	
 
 	/**
 	 * Relacionamento Many-to-Many entre esta entidade e Venda.
